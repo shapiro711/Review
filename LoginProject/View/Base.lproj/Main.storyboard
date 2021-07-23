@@ -11,7 +11,7 @@
         <!--Main View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="MainViewController" customModule="LoginProject" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="MainViewController" id="BYZ-38-t0r" customClass="MainViewController" customModule="LoginProject" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -65,6 +65,10 @@
                             <constraint firstItem="C5f-Bq-5Gt" firstAttribute="top" secondItem="wrM-vC-N5I" secondAttribute="bottom" constant="20" id="lie-x6-Ihv"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="idTextfiled" destination="qK9-IU-Zmd" id="WbY-8b-LC2"/>
+                        <outlet property="passwordTextfiled" destination="Laq-n1-qlk" id="5w0-dO-zhe"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>

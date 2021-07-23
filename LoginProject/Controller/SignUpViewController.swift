@@ -13,43 +13,122 @@ class SignUpViewController: UIViewController {
     @IBOutlet weak var passwordTextFiled: UITextField!
     @IBOutlet weak var checkPasswordTextFiled: UITextField!
     @IBOutlet weak var introduceTextView: UITextView!
+    @IBOutlet weak var nextButton: UIButton!
     
-    let imagePicker = UIImagePickerController()
+    let userInformation = UserInformation.shared
+    
+    lazy var imagePicker: UIImagePickerController = {
+        let picker = UIImagePickerController()
+        picker.sourceType = .photoLibrary
+        picker.allowsEditing = true
+        return picker
+    } ()
+    
+    override func viewWillAppear(_ animated: Bool) {
+        //nextButton.isEnabled = false
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        let gestureRecognizer = UITapGestureRecognizer.init(target: self, action: #selector(tabprofileImageView(gestureRecognizer:)))
-        self.profileImageView.addGestureRecognizer(gestureRecognizer)
-        
-        self.imagePicker.sourceType = .photoLibrary
-        self.imagePicker.allowsEditing = true
-        self.imagePicker.delegate = self
+        idTextFiled.becomeFirstResponder()
+        addTapGestureInProfileImageView()
+        initializeDelegate()
     }
     
-    @objc func tabprofileImageView(gestureRecognizer: UIGestureRecognizer) {
-        print("탭됨여")
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?){
+        self.view.endEditing(true)
     }
     
+    func addTapGestureInProfileImageView() {
+        let tapGesture = UITapGestureRecognizer()
+        profileImageView.addGestureRecognizer(tapGesture)
+        profileImageView.isUserInteractionEnabled = true
+        tapGesture.delegate = self
+    }
+    
+    func initializeDelegate() {
+        imagePicker.delegate = self
+        idTextFiled.delegate = self
+        passwordTextFiled.delegate = self
+        checkPasswordTextFiled.delegate = self
+        introduceTextView.delegate = self
+    }
+    
+    func checkIsCorrectPassword() -> Bool {
+        if userInformation.password == nil || userInformation.password == "" {
+            return false
+        } else if userInformation.password == checkPasswordTextFiled.text {
+            return true
+        }
+        return false
+    }
+    
+    func checkAndEnalbeNextButton() {
+        if profileImageView.image != nil && introduceTextView.text != "" && checkIsCorrectPassword() {
+            nextButton.isEnabled = true
+        } else {
+            nextButton.isEnabled = false
+        }
+    }
+
     @IBAction func touchUpCancelButton(_ sender: Any) {
+        userInformation.resetUserInformation()
+        dismiss(animated: true, completion: nil)
     }
     
     @IBAction func touchUpNextButton(_ sender: Any) {
+        let signUpDetailStoryBoard = UIStoryboard.init(name: "SignUpDetail", bundle: nil)
+        let signUpDetailViewController = signUpDetailStoryBoard.instantiateViewController(withIdentifier: "SignUpDetailViewController")
+        self.navigationController?.pushViewController(signUpDetailViewController, animated: true)
     }
 }
 
 extension SignUpViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
-    
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
-        
-        var newImage: UIImage? = nil // update 할 이미지
+        var selectedImage: UIImage? = nil
         
         if let possibleImage = info[UIImagePickerController.InfoKey.editedImage] as? UIImage {
-            newImage = possibleImage // 수정된 이미지가 있을 경우
+            selectedImage = possibleImage
         } else if let possibleImage = info[UIImagePickerController.InfoKey.originalImage] as? UIImage {
-            newImage = possibleImage // 원본 이미지가 있을 경우
+            selectedImage = possibleImage
         }
         
-        self.profileImageView.image = newImage // 받아온 이미지를 update
-        picker.dismiss(animated: true, completion: nil) // picker를 닫아줌
+        profileImageView.image = selectedImage
+        userInformation.profileImage = selectedImage
+        checkAndEnalbeNextButton()
+        picker.dismiss(animated: true, completion: nil)
+    }
+    
+    func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
+        checkAndEnalbeNextButton()
+        picker.dismiss(animated: true, completion: nil)
+    }
+}
+
+extension SignUpViewController: UIGestureRecognizerDelegate {
+    func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldReceive event: UIEvent) -> Bool {
+        present(imagePicker, animated: true, completion: nil)
+        return true
+    }
+}
+
+extension SignUpViewController: UITextFieldDelegate {
+    func textFieldDidEndEditing(_ textField: UITextField) {
+        switch textField {
+        case idTextFiled:
+            userInformation.id = textField.text
+        case passwordTextFiled:
+            userInformation.password = textField.text
+        default:
+            break
+        }
+        checkAndEnalbeNextButton()
+    }
+}
+
+extension SignUpViewController: UITextViewDelegate {
+    func textViewDidEndEditing(_ textView: UITextView) {
+        userInformation.introduce = textView.text
+        checkAndEnalbeNextButton()
     }
 }

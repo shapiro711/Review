@@ -18,6 +18,7 @@
 		3F8D914626A7FB6600DEFFCD /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F8D914526A7FB6600DEFFCD /* SignUpViewController.swift */; };
 		3F8D914B26A7FB7700DEFFCD /* SignUp.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3F8D914A26A7FB7700DEFFCD /* SignUp.storyboard */; };
 		3F8D915026A8022700DEFFCD /* SignUpDetail.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3F8D914F26A8022700DEFFCD /* SignUpDetail.storyboard */; };
+		3F9D1EF526AAA62700ABBFC2 /* SignUpDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F9D1EF426AAA62700ABBFC2 /* SignUpDetailViewController.swift */; };
 		3FC1E61C26A8048200836831 /* UserInformation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FC1E61B26A8048200836831 /* UserInformation.swift */; };
 /* End PBXBuildFile section */
 
@@ -56,6 +57,7 @@
 		3F8D914526A7FB6600DEFFCD /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		3F8D914A26A7FB7700DEFFCD /* SignUp.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SignUp.storyboard; sourceTree = "<group>"; };
 		3F8D914F26A8022700DEFFCD /* SignUpDetail.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SignUpDetail.storyboard; sourceTree = "<group>"; };
+		3F9D1EF426AAA62700ABBFC2 /* SignUpDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpDetailViewController.swift; sourceTree = "<group>"; };
 		3FC1E61B26A8048200836831 /* UserInformation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInformation.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -107,9 +109,9 @@
 		3F8D910926A7F6B200DEFFCD /* LoginProject */ = {
 			isa = PBXGroup;
 			children = (
-				3FC1E61A26A8044300836831 /* Controller */,
 				3FC1E61926A8043200836831 /* Model */,
 				3FC1E61826A8042800836831 /* View */,
+				3FC1E61A26A8044300836831 /* Controller */,
 				3F8D911826A7F6B500DEFFCD /* Info.plist */,
 			);
 			path = LoginProject;
@@ -136,11 +138,11 @@
 		3FC1E61826A8042800836831 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				3F8D914F26A8022700DEFFCD /* SignUpDetail.storyboard */,
-				3F8D914A26A7FB7700DEFFCD /* SignUp.storyboard */,
-				3F8D911326A7F6B500DEFFCD /* Assets.xcassets */,
-				3F8D911526A7F6B500DEFFCD /* LaunchScreen.storyboard */,
 				3F8D911026A7F6B200DEFFCD /* Main.storyboard */,
+				3F8D914A26A7FB7700DEFFCD /* SignUp.storyboard */,
+				3F8D914F26A8022700DEFFCD /* SignUpDetail.storyboard */,
+				3F8D911526A7F6B500DEFFCD /* LaunchScreen.storyboard */,
+				3F8D911326A7F6B500DEFFCD /* Assets.xcassets */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -160,6 +162,7 @@
 				3F8D910C26A7F6B200DEFFCD /* SceneDelegate.swift */,
 				3F8D914026A7FB1500DEFFCD /* MainViewController.swift */,
 				3F8D914526A7FB6600DEFFCD /* SignUpViewController.swift */,
+				3F9D1EF426AAA62700ABBFC2 /* SignUpDetailViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -300,6 +303,7 @@
 				3F8D910D26A7F6B200DEFFCD /* SceneDelegate.swift in Sources */,
 				3F8D914126A7FB1500DEFFCD /* MainViewController.swift in Sources */,
 				3FC1E61C26A8048200836831 /* UserInformation.swift in Sources */,
+				3F9D1EF526AAA62700ABBFC2 /* SignUpDetailViewController.swift in Sources */,
 				3F8D914626A7FB6600DEFFCD /* SignUpViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

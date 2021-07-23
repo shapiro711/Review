@@ -8,16 +8,16 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Sign Up Detail View Controller-->
         <scene sceneID="R4l-eZ-jUl">
             <objects>
-                <viewController id="Rtg-PA-6BF" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="SignUpDetailViewController" id="Rtg-PA-6BF" customClass="SignUpDetailViewController" customModule="LoginProject" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="rWg-90-koq">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="9RR-pO-0fV">
-                                <rect key="frame" x="16" y="64" width="382" height="95"/>
+                                <rect key="frame" x="16" y="64" width="382" height="124.5"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="전화번호" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rWq-pW-1mm">
                                         <rect key="frame" x="0.0" y="0.0" width="382" height="20.5"/>
@@ -28,19 +28,19 @@
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="kyG-yA-2oW">
                                         <rect key="frame" x="0.0" y="30.5" width="382" height="34"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits"/>
+                                        <textInputTraits key="textInputTraits" keyboardType="numberPad" returnKeyType="done"/>
                                     </textField>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="R1a-gX-f50">
-                                        <rect key="frame" x="0.0" y="74.5" width="382" height="20.5"/>
+                                        <rect key="frame" x="0.0" y="74.5" width="382" height="50"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="생년월일" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xdA-6N-iyz">
-                                                <rect key="frame" x="0.0" y="0.0" width="191" height="20.5"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="191" height="50"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Fe1-3V-89g">
-                                                <rect key="frame" x="191" y="0.0" width="191" height="20.5"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Fe1-3V-89g">
+                                                <rect key="frame" x="191" y="0.0" width="191" height="50"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
@@ -49,25 +49,34 @@
                                     </stackView>
                                 </subviews>
                             </stackView>
-                            <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="ism-bD-ZqU">
-                                <rect key="frame" x="0.0" y="179" width="414" height="216"/>
+                            <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" style="wheels" translatesAutoresizingMaskIntoConstraints="NO" id="ism-bD-ZqU">
+                                <rect key="frame" x="0.0" y="208.5" width="414" height="216"/>
                             </datePicker>
                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="Znb-UE-aRk">
-                                <rect key="frame" x="0.0" y="415" width="414" height="30"/>
+                                <rect key="frame" x="0.0" y="444.5" width="414" height="30"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GVI-rw-Wtu">
                                         <rect key="frame" x="0.0" y="0.0" width="138" height="30"/>
                                         <state key="normal" title="취소">
                                             <color key="titleColor" systemColor="systemPinkColor"/>
                                         </state>
+                                        <connections>
+                                            <action selector="touchUpCancelButton:" destination="Rtg-PA-6BF" eventType="touchUpInside" id="Poi-3g-Pb3"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="c5C-hH-lkV">
                                         <rect key="frame" x="138" y="0.0" width="138" height="30"/>
                                         <state key="normal" title="이전"/>
+                                        <connections>
+                                            <action selector="touchUpPreviousButton:" destination="Rtg-PA-6BF" eventType="touchUpInside" id="OVa-zU-m17"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6Ni-iJ-6uU">
                                         <rect key="frame" x="276" y="0.0" width="138" height="30"/>
                                         <state key="normal" title="가입"/>
+                                        <connections>
+                                            <action selector="touchUpJoinButton:" destination="Rtg-PA-6BF" eventType="touchUpInside" id="Op2-PQ-XrW"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                             </stackView>
@@ -86,6 +95,12 @@
                             <constraint firstItem="ism-bD-ZqU" firstAttribute="top" secondItem="9RR-pO-0fV" secondAttribute="bottom" constant="20" id="s8z-8k-n4M"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="birthDatePicker" destination="ism-bD-ZqU" id="sua-0W-wdk"/>
+                        <outlet property="birthDayLabel" destination="Fe1-3V-89g" id="g37-WD-haf"/>
+                        <outlet property="joinButton" destination="6Ni-iJ-6uU" id="r5r-kR-cY9"/>
+                        <outlet property="phoneNumberTextFiled" destination="kyG-yA-2oW" id="NjO-gn-C9j"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qTZ-bp-cLh" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

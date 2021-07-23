@@ -39,12 +39,12 @@
                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Paasword" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="5W7-Zs-cpc">
                                                 <rect key="frame" x="0.0" y="50" width="232" height="40"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                <textInputTraits key="textInputTraits"/>
+                                                <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
                                             </textField>
                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Check Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="S6V-sT-W8o">
                                                 <rect key="frame" x="0.0" y="100" width="232" height="40"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                <textInputTraits key="textInputTraits"/>
+                                                <textInputTraits key="textInputTraits" keyboardType="numberPad" textContentType="password"/>
                                             </textField>
                                         </subviews>
                                     </stackView>
@@ -94,17 +94,34 @@
                             <constraint firstItem="fnq-Ek-ff2" firstAttribute="trailing" secondItem="NnC-tT-Orv" secondAttribute="trailing" constant="16" id="tBu-EG-MiW"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="MbX-jz-7dc"/>
                     <connections>
                         <outlet property="checkPasswordTextFiled" destination="S6V-sT-W8o" id="yno-Y5-Add"/>
                         <outlet property="idTextFiled" destination="KA4-SM-cMF" id="bGP-Y5-idh"/>
                         <outlet property="introduceTextView" destination="aS9-AH-X0W" id="XyV-lo-i3x"/>
+                        <outlet property="nextButton" destination="bhd-BL-x05" id="ser-13-5Kh"/>
                         <outlet property="passwordTextFiled" destination="5W7-Zs-cpc" id="xD6-mt-4nf"/>
                         <outlet property="profileImageView" destination="8Zi-dN-g1J" id="bou-3F-Qbo"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ROH-Bw-4rm" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="34.782608695652179" y="91.741071428571431"/>
+            <point key="canvasLocation" x="867" y="76"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="iUr-vW-3Kh">
+            <objects>
+                <navigationController storyboardIdentifier="SignUpNavigationController" navigationBarHidden="YES" id="Auw-2U-a1g" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="MlO-mY-dn8">
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="He3-R9-ov9" kind="relationship" relationship="rootViewController" id="O0q-jV-vfi"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="gfP-my-FVG" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-49" y="76"/>
         </scene>
     </scenes>
     <resources>
