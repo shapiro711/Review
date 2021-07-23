@@ -25,7 +25,7 @@ class SignUpViewController: UIViewController {
     } ()
     
     override func viewWillAppear(_ animated: Bool) {
-        //nextButton.isEnabled = false
+        nextButton.isEnabled = false
     }
     
     override func viewDidLoad() {
